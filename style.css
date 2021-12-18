@@ -1,0 +1,355 @@
+:root {
+    --green: #51af5e;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    counter-reset: score;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.animationland-content {
+    display: grid;
+    place-items: center;
+}
+.animationland-content img {
+    margin-top: 50px;
+    width: 200px;   
+}
+.animationland-content h3 {
+    color: #A64A36;
+    margin-top: 10px;
+}
+
+input[type=checkbox] {
+    position: absolute;
+    appearance: none;
+    cursor: pointer;
+    z-index: 1;
+    width: 100%;
+    height: 80px;
+}
+
+input:checked {
+    counter-increment: score;
+}
+
+.total-count::after {
+    content: counter(score);
+}
+
+/* Phone container */
+
+.phone {
+    position: relative;
+    border: 8px solid black;
+    border-radius: 40px;
+    height: 600px;
+    width: 300px;
+    background-color: #ccefff;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22 );
+    overflow: hidden;
+}
+
+.layer-absolute {
+    position: absolute;
+}
+
+.layer-1, .layer-2, .layer-4, .layer-6 {
+    height: 450px;
+    width: 80px;
+    z-index: 1;
+    bottom: 0; 
+    animation-name: rabbit;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+/* Rabbit Animation */
+@keyframes rabbit {
+    50% {
+        transform: translate(0, 40%);
+    }
+}
+
+.layer-1 { /* Conejo 1 */
+    left: 60px;
+    animation-duration: 1s;
+}
+
+
+
+.layer-2 { /* Conejo 2 */
+    right: 60px;
+    animation-duration: 0.8s;
+}
+
+.layer-3, .layer-5, .layer-7 {
+    background-color: rgb(117, 79, 44);
+    bottom: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    -webkit-box-shadow: -2px 6px 15px -3px rgba(0,0,0,0.85); 
+    box-shadow: -2px 6px 15px -3px rgba(0,0,0,0.85);
+}
+
+.layer-3 { /* Tierra 1 */
+    z-index: 5;
+    height: 390px;
+    width: 200px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+.layer-4 { /* Conejo 3 */
+    z-index: 10;
+    left: 30px;
+    height: 360px;
+    animation-duration: 1.2s;
+}
+
+.layer-5 { /* Tierra 2 */
+    z-index: 15;
+    height: 300px;
+    width: 180px;
+    left: 0;
+}
+
+.layer-6 { /* Conejo 4 */
+    z-index: 20;
+    right: 30px;
+    height: 280px;
+    animation-duration: .7s;
+}
+
+.layer-7 { /* Tierra 3*/
+    z-index: 25;
+    height: 220px;
+    width: 150px;
+    right: 0;
+}
+
+.layer-8 { /* Nube 1*/
+    z-index: 30;
+    height: 150px;
+    width: 200px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+.layer-8__left-lawn {
+    background: var(--green);
+    border-radius: 40px 40px 0 0;
+    bottom: 0;
+    display: inline-block;
+    height: 70%;
+    left: 0;
+    position: absolute;
+    width: 80px;
+}
+
+.layer-8__center-lawn {
+    background: var(--green);
+    border-radius: 40px 40px 0 0;
+    bottom: 0;
+    display: inline-block;
+    height: 100%;
+    left: 60px;
+    position: absolute;
+    width: 80px;
+}
+
+.layer-8__right-lawn {
+    background: var(--green);
+    border-radius: 40px 40px 0 0;
+    bottom: 0;
+    display: inline-block;
+    height: 80%;
+    left: 130px;
+    position: absolute;
+    width: 80px;
+}
+
+.layer-9, .layer-10 {
+    z-index: 35;
+    height: 100px;
+    width: 120px;
+    bottom: 0;
+}
+
+.layer-9 { /* Nube 2*/ 
+    left: 0;
+}
+
+
+.layer-9__center-lawn, .layer-10__center-lawn {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 80px;
+    border-radius: 50px 50px 0 0;
+    background: #fff;
+}
+
+.layer-9__center-lawn {
+    left: 0;
+}
+
+.layer-9__right-lawn, .layer-10__left-lawn {
+    position: absolute;
+    bottom: 0;
+    height: 60%;
+    width: 60px;
+    background: #fff;
+}
+.layer-9__right-lawn {
+    left: 60px;
+    border-radius: 0 50px 50px 0;
+}
+
+.layer-10 { /* Nube 3*/ 
+    right: 0;
+}
+
+.layer-10__center-lawn {
+    right: 0;
+}
+.layer-10__left-lawn {
+    right: 60px;
+    border-radius: 50px 0 0 50px;
+}
+
+
+/* Rabbit */
+
+.left-ear--outer, .right-ear--outer { /* Outer Ear Props */
+    background-color: #fff;
+    border-radius: 90%;
+    height: 50px;
+    width: 20px;
+}
+
+.left-ear--inner, .right-ear--inner { /* Inner Ear Props */
+    background-color: pink;
+    border-radius: 90%;
+    height: 40px;
+    width: 10px;
+    top: 5px;
+}
+
+.left-ear--outer {
+    left: 15px;
+}
+
+.left-ear--inner {
+    left: 20px;
+}
+
+.right-ear--outer {
+    right: 15px;
+}
+
+.right-ear--inner {
+    right: 20px;
+}
+
+.head {
+    position: absolute;
+    background: #fff;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 30px;
+}
+
+.head__eye {
+    background: black;
+    width: 5px;
+    height: 8px;
+    border-radius: 90%;
+    position: absolute;
+    top: 15px;
+    animation-name: rabbit-eye;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rabbit-eye {
+    0% {
+        height: 8px;
+    }
+    5% {
+        transform: translate(0, 50%);
+        height: 1px;
+    }
+    10% {
+        transform: translate(0, 0);
+        height: 8px;
+    }
+}
+
+.head__eye--left {
+    left: 20px;
+}
+
+.head__eye--right {
+    right: 20px;
+}
+
+/* Cesped */
+
+.grass:after{
+    content: "";
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    height: 30px;
+    background: linear-gradient(135deg, #67A167 25%, transparent 25%) -50px 0,
+                linear-gradient(-135deg, #67A167 25%, transparent 25%) -50px 0,
+                linear-gradient(45deg, #67A167 25%, transparent 25%),
+                linear-gradient(-45deg, #67A167 25%, transparent 25%),
+                linear-gradient(135deg, #67A167 25%, transparent 25%) -50px 0,
+                linear-gradient(-135deg, #67A167 25%, transparent 25%) -50px 0,
+                linear-gradient(45deg, #67A167 25%, transparent 25%),
+                linear-gradient(-45deg, #67A167 25%, transparent 25%),
+                linear-gradient(135deg, #67A167 25%, transparent 25%) -50px 0,
+                linear-gradient(-135deg, #67A167 25%, transparent 25%) -50px 0,
+                linear-gradient(45deg, #67A167 25%, transparent 25%),
+                linear-gradient(-45deg, #67A167 25%, transparent 25%);
+    background-size: 30px 80px;
+}
+
+.grass::before {
+    content: "";
+    position: absolute; 
+    /* left: -0px; */
+    top: 13px;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(135deg, rgb(90, 61, 34) 25%, transparent 25%) -50px 0,
+                linear-gradient(-135deg, rgb(90, 61, 34) 25%, transparent 25%) -50px 0,
+                linear-gradient(45deg, rgb(90, 61, 34) 25%, transparent 25%),
+                linear-gradient(-45deg, rgb(90, 61, 34) 25%, transparent 25%),
+                linear-gradient(135deg, rgb(90, 61, 34) 25%, transparent 25%) -50px 0,
+                linear-gradient(-135deg, rgb(90, 61, 34) 25%, transparent 25%) -50px 0,
+                linear-gradient(45deg, rgb(90, 61, 34) 25%, transparent 25%),
+                linear-gradient(-45deg, rgb(90, 61, 34) 25%, transparent 25%),
+                linear-gradient(135deg, rgb(90, 61, 34) 25%, transparent 25%) -50px 0,
+                linear-gradient(-135deg, rgb(90, 61, 34) 25%, transparent 25%) -50px 0,
+                linear-gradient(45deg, rgb(90, 61, 34) 25%, transparent 25%),
+                linear-gradient(-45deg, rgb(90, 61, 34) 25%, transparent 25%);        
+    background-size: 30px 100px;
+    background-position: 140px 0 0 30px 0;
+}
